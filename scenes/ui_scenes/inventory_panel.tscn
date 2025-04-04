@@ -1,0 +1,281 @@
+[gd_scene load_steps=9 format=3 uid="uid://pwbsmgqdntps"]
+
+[ext_resource type="Script" uid="uid://bkqjffatwjdt4" path="res://scripts/ui_codes/inventory_panel.gd" id="1_4mbg2"]
+[ext_resource type="StyleBox" uid="uid://cals22duy8qet" path="res://styles/base_style.tres" id="1_v5qbc"]
+[ext_resource type="StyleBox" uid="uid://jib7mxpy0npm" path="res://styles/inventry_slot.tres" id="2_34x31"]
+[ext_resource type="Texture2D" uid="uid://1ymqjc0yccj6" path="res://assets/items/wood1.png" id="2_lo5i4"]
+[ext_resource type="StyleBox" uid="uid://b1lpp28uff7is" path="res://styles/catogery_btn.tres" id="3_hwwin"]
+[ext_resource type="StyleBox" uid="uid://egvbf06syish" path="res://styles/close_btn.tres" id="4_niqxu"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_rc8sh"]
+device = -1
+keycode = 73
+unicode = 105
+
+[sub_resource type="Shortcut" id="Shortcut_lo5i4"]
+events = [SubResource("InputEventKey_rc8sh")]
+
+[node name="inventory_panel" type="Panel"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 558.0
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_v5qbc")
+script = ExtResource("1_4mbg2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="title_lbl" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "INVENTORY"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="items_btn" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = ExtResource("3_hwwin")
+text = "ITEMS"
+
+[node name="tools_btn" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = ExtResource("3_hwwin")
+text = "TOOLS"
+
+[node name="food_btn" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = ExtResource("3_hwwin")
+text = "FOODS"
+
+[node name="items_inv" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/items_inv"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/items_inv/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="stick_btn" type="Button" parent="VBoxContainer/items_inv/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("2_34x31")
+text = "ITEM"
+
+[node name="wood_btn" type="Button" parent="VBoxContainer/items_inv/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("2_34x31")
+text = "Wood : "
+
+[node name="rock_btn" type="Button" parent="VBoxContainer/items_inv/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("2_34x31")
+
+[node name="stone_btn" type="Button" parent="VBoxContainer/items_inv/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("2_34x31")
+
+[node name="grass_fiber_btn" type="Button" parent="VBoxContainer/items_inv/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("2_34x31")
+
+[node name="grass_rope_btn" type="Button" parent="VBoxContainer/items_inv/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("2_34x31")
+
+[node name="long_stick_btn" type="Button" parent="VBoxContainer/items_inv/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("2_34x31")
+
+[node name="sharp_stone_btn" type="Button" parent="VBoxContainer/items_inv/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("2_34x31")
+
+[node name="sharp_stone_btn2" type="Button" parent="VBoxContainer/items_inv/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("2_34x31")
+
+[node name="stonium_btn" type="Button" parent="VBoxContainer/items_inv/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("2_34x31")
+
+[node name="tools_inv" type="ScrollContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/tools_inv"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/tools_inv/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="bsc_axe_btn" type="Button" parent="VBoxContainer/tools_inv/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("2_34x31")
+
+[node name="bsc_picaxe_btn" type="Button" parent="VBoxContainer/tools_inv/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("2_34x31")
+
+[node name="food_inv" type="ScrollContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/food_inv"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/food_inv/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="red_berry_btn" type="Button" parent="VBoxContainer/food_inv/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("2_34x31")
+
+[node name="squirel_meat_btn" type="Button" parent="VBoxContainer/food_inv/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("2_34x31")
+
+[node name="inv_back_btn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("4_niqxu")
+shortcut = SubResource("Shortcut_lo5i4")
+text = "BACK"
+
+[node name="inv_info_panel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 41.0
+offset_right = 445.0
+offset_bottom = -41.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_v5qbc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="inv_info_panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0208333
+anchor_right = 0.976852
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="item_lbl" type="Label" parent="inv_info_panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "<item name>"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="item_texture" type="TextureRect" parent="inv_info_panel/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_lo5i4")
+stretch_mode = 3
+
+[node name="info_lbl" type="Label" parent="inv_info_panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 30
+text = "<item info>"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="close_btn" type="Button" parent="inv_info_panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("4_niqxu")
+text = "CLOSE"
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/items_btn" to="." method="_on_items_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/tools_btn" to="." method="_on_tools_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/food_btn" to="." method="_on_food_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/items_inv/MarginContainer/VBoxContainer/stick_btn" to="." method="_on_stick_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/items_inv/MarginContainer/VBoxContainer/wood_btn" to="." method="_on_wood_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/items_inv/MarginContainer/VBoxContainer/rock_btn" to="." method="_on_rock_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/items_inv/MarginContainer/VBoxContainer/stone_btn" to="." method="_on_stone_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/items_inv/MarginContainer/VBoxContainer/grass_fiber_btn" to="." method="_on_grass_fiber_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/items_inv/MarginContainer/VBoxContainer/grass_rope_btn" to="." method="_on_grass_rope_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/items_inv/MarginContainer/VBoxContainer/long_stick_btn" to="." method="_on_long_stick_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/items_inv/MarginContainer/VBoxContainer/sharp_stone_btn" to="." method="_on_sharp_stone_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/items_inv/MarginContainer/VBoxContainer/sharp_stone_btn2" to="." method="_on_sharp_stone_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/items_inv/MarginContainer/VBoxContainer/stonium_btn" to="." method="_on_stonium_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/tools_inv/MarginContainer/VBoxContainer/bsc_axe_btn" to="." method="_on_bsc_axe_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/tools_inv/MarginContainer/VBoxContainer/bsc_picaxe_btn" to="." method="_on_bsc_picaxe_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/food_inv/MarginContainer/VBoxContainer/red_berry_btn" to="." method="_on_berry_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/food_inv/MarginContainer/VBoxContainer/squirel_meat_btn" to="." method="_on_squirel_meat_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/inv_back_btn" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="inv_info_panel/VBoxContainer/close_btn" to="." method="_on_close_btn_pressed"]

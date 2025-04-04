@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://bmpuva0i6qlqw"]
+
+[ext_resource type="PackedScene" uid="uid://0eew1q12nws4" path="res://scenes/player.tscn" id="1_3xnbe"]
+[ext_resource type="PackedScene" uid="uid://b4eseeox3ae4j" path="res://scenes/world_stuff/tree.tscn" id="2_3bc65"]
+[ext_resource type="PackedScene" uid="uid://cujd6swf1npeu" path="res://scenes/world_stuff/stone_pile.tscn" id="3_nygb8"]
+[ext_resource type="PackedScene" uid="uid://8glpx4shx0n" path="res://scenes/world_stuff/long_grass.tscn" id="4_6c23j"]
+[ext_resource type="PackedScene" uid="uid://bahed7mjts0ap" path="res://scenes/working_bench.tscn" id="5_f5cv8"]
+[ext_resource type="PackedScene" uid="uid://0evt2y7v6gpx" path="res://scenes/world_stuff/cave.tscn" id="6_abrc5"]
+[ext_resource type="PackedScene" uid="uid://r7vdjqx5b3v" path="res://scenes/world_stuff/berry_bush.tscn" id="7_vxiv5"]
+[ext_resource type="PackedScene" uid="uid://yef6kofwttli" path="res://scenes/world_stuff/ruin.tscn" id="8_seyud"]
+[ext_resource type="PackedScene" uid="uid://c5cdm85wwmqvt" path="res://scenes/world_stuff/staircase_1.tscn" id="9_3mlmw"]
+[ext_resource type="PackedScene" uid="uid://nt8rxekk8wad" path="res://scenes/beigns/squirel.tscn" id="10_p27ou"]
+[ext_resource type="Script" uid="uid://b3mqy6xoxtnjo" path="res://scripts/camera_2d.gd" id="11_3bc65"]
+
+[node name="world_test" type="Node2D"]
+y_sort_enabled = true
+
+[node name="ground" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1305.0
+offset_top = -832.0
+offset_right = 1359.0
+offset_bottom = 843.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.00447685, 0.5, 0.0904457, 1)
+
+[node name="Label" type="Label" parent="ground"]
+layout_mode = 0
+offset_left = 1574.0
+offset_top = 528.0
+offset_right = 2132.0
+offset_bottom = 624.0
+theme_override_font_sizes/font_size = 70
+text = "TESTING WORLD"
+
+[node name="player" parent="." instance=ExtResource("1_3xnbe")]
+
+[node name="tree" parent="." instance=ExtResource("2_3bc65")]
+position = Vector2(-835, -381)
+
+[node name="stone_pile" parent="." instance=ExtResource("3_nygb8")]
+position = Vector2(-875, 280)
+
+[node name="long_grass" parent="." instance=ExtResource("4_6c23j")]
+position = Vector2(-114, -482)
+
+[node name="working_bench" parent="." instance=ExtResource("5_f5cv8")]
+position = Vector2(-127, 411)
+
+[node name="cave" parent="." instance=ExtResource("6_abrc5")]
+position = Vector2(837, -573)
+
+[node name="berry_bush" parent="." instance=ExtResource("7_vxiv5")]
+position = Vector2(968, 64)
+
+[node name="ruin" parent="." instance=ExtResource("8_seyud")]
+position = Vector2(591, 425)
+build_name = "staircase"
+construct = ExtResource("9_3mlmw")
+
+[node name="squirel" parent="." instance=ExtResource("10_p27ou")]
+position = Vector2(-283.727, -195.189)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("11_3bc65")

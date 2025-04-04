@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvejeiiya08k3"]
+
+[ext_resource type="Texture2D" uid="uid://ds6ayjo5iol08" path="res://assets/World_assets/world_tiles/world_hexaground1wall.png" id="1_5rsxq"]
+[ext_resource type="Texture2D" uid="uid://c357hqg6gqd0t" path="res://assets/World_assets/world_tiles/world_hexaground1.png" id="2_7jjut"]
+
+[node name="ground_tile_grass_1" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+offset_right = 436.0
+offset_bottom = 369.0
+scale = Vector2(2, 2)
+texture = ExtResource("1_5rsxq")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_top = -153.0
+offset_right = 435.0
+offset_bottom = 216.0
+scale = Vector2(2, 2)
+texture = ExtResource("2_7jjut")
+metadata/_edit_use_anchors_ = true

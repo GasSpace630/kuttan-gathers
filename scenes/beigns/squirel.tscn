@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://nt8rxekk8wad"]
+
+[ext_resource type="Script" uid="uid://cxkll5l3n11kb" path="res://scripts/beings/squirel.gd" id="1_f1vhv"]
+[ext_resource type="Texture2D" uid="uid://cqyx3avknoghy" path="res://assets/squirel_sprite.png" id="2_f1vhv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a77y0"]
+size = Vector2(38, 40)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ji0as"]
+radius = 192.003
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1vhv"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="squirel" type="CharacterBody2D" groups=["animals"]]
+motion_mode = 1
+script = ExtResource("1_f1vhv")
+health = 100
+speed = 200
+accel = 0.05
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_a77y0")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+scale = Vector2(1.5, 1.417)
+texture = ExtResource("2_f1vhv")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ji0as")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -23.0
+offset_right = 31.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+theme_override_styles/fill = SubResource("StyleBoxFlat_f1vhv")
+show_percentage = false
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

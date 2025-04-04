@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://r7vdjqx5b3v"]
+
+[ext_resource type="Script" uid="uid://cevdxjq88shjy" path="res://scripts/world_stuff/berry_bush.gd" id="1_ici0h"]
+[ext_resource type="Texture2D" uid="uid://hg00pf4irqle" path="res://assets/World_assets/world_stuff/redberry_bush1.png" id="2_ici0h"]
+[ext_resource type="Texture2D" uid="uid://b18pije5id1gu" path="res://assets/World_assets/world_stuff/destroyed_redberry_bush.png" id="3_jipmj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jipmj"]
+radius = 11.9382
+height = 143.987
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ici0h"]
+size = Vector2(263, 138)
+
+[node name="berry_bush" type="StaticBody2D" groups=["interactable"]]
+y_sort_enabled = true
+script = ExtResource("1_ici0h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -9)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_ici0h")
+offset = Vector2(0, -15)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -9)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_jipmj")
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -22)
+rotation = -1.57027
+shape = SubResource("CapsuleShape2D_jipmj")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2.5, -44)
+shape = SubResource("RectangleShape2D_ici0h")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

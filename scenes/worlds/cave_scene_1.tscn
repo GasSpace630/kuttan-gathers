@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://d36o8ag5qkwda"]
+
+[ext_resource type="PackedScene" uid="uid://0eew1q12nws4" path="res://scenes/player.tscn" id="1_qu122"]
+[ext_resource type="PackedScene" uid="uid://bogpqmfcugnfm" path="res://scenes/world_stuff/cave_exit.tscn" id="2_222gy"]
+[ext_resource type="PackedScene" uid="uid://phc71orq68jp" path="res://scenes/beigns/stone_golem.tscn" id="3_a60m6"]
+
+[node name="cave_scene1" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -978.0
+offset_top = -596.0
+offset_right = 978.0
+offset_bottom = 596.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.221, 0.26, 0.2561, 1)
+
+[node name="player" parent="." instance=ExtResource("1_qu122")]
+position = Vector2(-64, 58)
+
+[node name="cave_exit" parent="." instance=ExtResource("2_222gy")]
+
+[node name="enemy1" parent="." instance=ExtResource("3_a60m6")]
+position = Vector2(-648.486, -230.281)

@@ -1,0 +1,295 @@
+[gd_scene load_steps=12 format=3 uid="uid://xdibca0j6hq"]
+
+[ext_resource type="Script" uid="uid://bcukya2vwfx41" path="res://scripts/ui_codes/crafting_panel.gd" id="1_ex6nu"]
+[ext_resource type="Texture2D" uid="uid://dwbbar3s0kll6" path="res://assets/items/stick_idel.png" id="2_31s2h"]
+[ext_resource type="StyleBox" uid="uid://cals22duy8qet" path="res://styles/base_style.tres" id="2_isa72"]
+[ext_resource type="Texture2D" uid="uid://dsrcsd6sjxp4p" path="res://assets/items/rocks_idel.png" id="3_ns250"]
+[ext_resource type="StyleBox" uid="uid://b1lpp28uff7is" path="res://styles/catogery_btn.tres" id="3_su70d"]
+[ext_resource type="Texture2D" uid="uid://criwjdb3hfdiu" path="res://assets/tools/basic_axe_idel.png" id="3_xpnfe"]
+[ext_resource type="Texture2D" uid="uid://dkh8mb56gycks" path="res://assets/items/grass_rope_idel.png" id="4_isa72"]
+[ext_resource type="Texture2D" uid="uid://cqfkngyeucq3r" path="res://assets/items/sharp_stone_idel.png" id="5_su70d"]
+[ext_resource type="Texture2D" uid="uid://bxgnxrc7arw2f" path="res://assets/items/long_stick_idel.png" id="6_srlni"]
+[ext_resource type="StyleBox" uid="uid://egvbf06syish" path="res://styles/close_btn.tres" id="10_su70d"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xpnfe"]
+load_path = "res://.godot/imported/basic_picaxe_idel.png-1c419d288b0ed0b7fc972d8fecdfbf2d.ctex"
+
+[node name="crafting_panel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1303.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ex6nu")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_isa72")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="title_lbl" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Working Bench"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="items_btn" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = ExtResource("3_su70d")
+text = "ITEMS"
+
+[node name="tools_btn" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = ExtResource("3_su70d")
+text = "TOOLS"
+
+[node name="items_container" type="ScrollContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/items_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="Panel/VBoxContainer/items_container/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="stick" type="VBoxContainer" parent="Panel/VBoxContainer/items_container/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/items_container/MarginContainer/GridContainer/stick"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_31s2h")
+stretch_mode = 3
+
+[node name="respi" type="Label" parent="Panel/VBoxContainer/items_container/MarginContainer/GridContainer/stick"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "wood : 1"
+horizontal_alignment = 1
+
+[node name="stick_cr_btn" type="Button" parent="Panel/VBoxContainer/items_container/MarginContainer/GridContainer/stick"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Stick"
+
+[node name="rock" type="VBoxContainer" parent="Panel/VBoxContainer/items_container/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/items_container/MarginContainer/GridContainer/rock"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_ns250")
+stretch_mode = 3
+
+[node name="respi" type="Label" parent="Panel/VBoxContainer/items_container/MarginContainer/GridContainer/rock"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "stone : 1"
+horizontal_alignment = 1
+
+[node name="rock_cr_btn" type="Button" parent="Panel/VBoxContainer/items_container/MarginContainer/GridContainer/rock"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Rock"
+
+[node name="grass_rope" type="VBoxContainer" parent="Panel/VBoxContainer/items_container/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/items_container/MarginContainer/GridContainer/grass_rope"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_isa72")
+stretch_mode = 3
+
+[node name="respi" type="Label" parent="Panel/VBoxContainer/items_container/MarginContainer/GridContainer/grass_rope"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "wood : 1"
+horizontal_alignment = 1
+
+[node name="grass_rope_cr_btn" type="Button" parent="Panel/VBoxContainer/items_container/MarginContainer/GridContainer/grass_rope"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "grass Rope"
+autowrap_mode = 2
+
+[node name="sharp_stone" type="VBoxContainer" parent="Panel/VBoxContainer/items_container/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/items_container/MarginContainer/GridContainer/sharp_stone"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("5_su70d")
+stretch_mode = 3
+
+[node name="respi" type="Label" parent="Panel/VBoxContainer/items_container/MarginContainer/GridContainer/sharp_stone"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "stone : 1"
+horizontal_alignment = 1
+
+[node name="sharp_stone_cr_btn" type="Button" parent="Panel/VBoxContainer/items_container/MarginContainer/GridContainer/sharp_stone"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Sharp Stone"
+autowrap_mode = 2
+
+[node name="long_stick" type="VBoxContainer" parent="Panel/VBoxContainer/items_container/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/items_container/MarginContainer/GridContainer/long_stick"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("6_srlni")
+stretch_mode = 3
+
+[node name="respi" type="Label" parent="Panel/VBoxContainer/items_container/MarginContainer/GridContainer/long_stick"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "stick : 5
+grass rope : 3"
+horizontal_alignment = 1
+
+[node name="long_stick_cr_btn" type="Button" parent="Panel/VBoxContainer/items_container/MarginContainer/GridContainer/long_stick"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Long Stick"
+autowrap_mode = 2
+
+[node name="tools_container" type="ScrollContainer" parent="Panel/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/tools_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="Panel/VBoxContainer/tools_container/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="bsc_axe" type="VBoxContainer" parent="Panel/VBoxContainer/tools_container/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/tools_container/MarginContainer/GridContainer/bsc_axe"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_xpnfe")
+stretch_mode = 3
+
+[node name="respi" type="Label" parent="Panel/VBoxContainer/tools_container/MarginContainer/GridContainer/bsc_axe"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "sharp stone : 1
+grass rope : 1
+long stick : 1"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="bsc_axe_cr_btn" type="Button" parent="Panel/VBoxContainer/tools_container/MarginContainer/GridContainer/bsc_axe"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Basic Axe"
+
+[node name="bsc_picaxe" type="VBoxContainer" parent="Panel/VBoxContainer/tools_container/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/tools_container/MarginContainer/GridContainer/bsc_picaxe"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("CompressedTexture2D_xpnfe")
+stretch_mode = 3
+
+[node name="respi" type="Label" parent="Panel/VBoxContainer/tools_container/MarginContainer/GridContainer/bsc_picaxe"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "sharp stone : 1
+grass rope : 1
+long stick : 1"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="bsc_picaxe_cr_btn" type="Button" parent="Panel/VBoxContainer/tools_container/MarginContainer/GridContainer/bsc_picaxe"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Basic Picaxe"
+autowrap_mode = 2
+
+[node name="close_btn" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("10_su70d")
+text = "CLOSE"
+
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/items_btn" to="." method="_on_items_btn_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/tools_btn" to="." method="_on_tools_btn_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/items_container/MarginContainer/GridContainer/stick/stick_cr_btn" to="." method="_on_stick_cr_btn_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/items_container/MarginContainer/GridContainer/rock/rock_cr_btn" to="." method="_on_rock_cr_btn_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/items_container/MarginContainer/GridContainer/grass_rope/grass_rope_cr_btn" to="." method="_on_grass_rope_cr_btn_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/items_container/MarginContainer/GridContainer/sharp_stone/sharp_stone_cr_btn" to="." method="_on_sharp_stone_cr_btn_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/items_container/MarginContainer/GridContainer/long_stick/long_stick_cr_btn" to="." method="_on_bsc_handle_cr_btn_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/tools_container/MarginContainer/GridContainer/bsc_axe/bsc_axe_cr_btn" to="." method="_on_bsc_axe_cr_btn_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/tools_container/MarginContainer/GridContainer/bsc_picaxe/bsc_picaxe_cr_btn" to="." method="_on_bsc_picaxe_cr_btn_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/close_btn" to="." method="_on_close_btn_pressed"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bahed7mjts0ap"]
+
+[ext_resource type="Script" uid="uid://ci5jsvmmx0x8b" path="res://scripts/world_stuff/working_bench.gd" id="1_ideq2"]
+[ext_resource type="Texture2D" uid="uid://ckfef8h6qirk" path="res://assets/World_assets/world_stuff/working_bench.png" id="2_yugvh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ullnt"]
+size = Vector2(139, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xyhq"]
+size = Vector2(129, 1.66666)
+
+[node name="working_bench" type="Area2D"]
+script = ExtResource("1_ideq2")
+
+[node name="ColorRect" type="Sprite2D" parent="."]
+texture = ExtResource("2_yugvh")
+offset = Vector2(0, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -10)
+shape = SubResource("RectangleShape2D_ullnt")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, -9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.5, -2.83333)
+shape = SubResource("RectangleShape2D_3xyhq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

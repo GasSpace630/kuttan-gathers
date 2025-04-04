@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://0evt2y7v6gpx"]
+
+[ext_resource type="Script" uid="uid://bv5wuwu1sng8" path="res://scripts/world_stuff/cave.gd" id="1_kl1td"]
+[ext_resource type="Texture2D" uid="uid://cwi8vuspla4su" path="res://assets/World_assets/world_stuff/cave1.png" id="2_vcykq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i57h1"]
+radius = 58.0082
+height = 216.036
+
+[node name="cave" type="Node2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_kl1td")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vcykq")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-4, 39)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 14)
+rotation = -1.54954
+shape = SubResource("CapsuleShape2D_i57h1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-1, 119)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(84, -73, 1, -91, -77, -71, -108, -115, -87.6667, -140.333, -60, -159, -3, -171, 50.3333, -164.333, 79, -151.667, 102, -121)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

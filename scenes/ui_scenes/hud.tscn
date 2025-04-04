@@ -1,0 +1,141 @@
+[gd_scene load_steps=10 format=3 uid="uid://dgpyi8swurnrc"]
+
+[ext_resource type="Script" uid="uid://crwyw6pgn6qjn" path="res://scripts/ui_codes/hud.gd" id="1_ensg4"]
+[ext_resource type="Script" uid="uid://dijmkb3n7ewkp" path="res://scripts/mainstuff.gd" id="2_0jxih"]
+[ext_resource type="PackedScene" uid="uid://desf6t41svxlk" path="res://scenes/ui_scenes/collecting_panel.tscn" id="2_ap566"]
+[ext_resource type="PackedScene" uid="uid://pwbsmgqdntps" path="res://scenes/ui_scenes/inventory_panel.tscn" id="3_4ocwj"]
+[ext_resource type="StyleBox" uid="uid://cals22duy8qet" path="res://styles/base_style.tres" id="3_ldeas"]
+[ext_resource type="PackedScene" uid="uid://xdibca0j6hq" path="res://scenes/ui_scenes/crafting_panel.tscn" id="4_vx05x"]
+[ext_resource type="PackedScene" uid="uid://cyx51skguk7na" path="res://scenes/ui_scenes/repair_panel.tscn" id="5_ap566"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_ap566"]
+device = -1
+keycode = 73
+unicode = 105
+
+[sub_resource type="Shortcut" id="Shortcut_0jxih"]
+events = [SubResource("InputEventKey_ap566")]
+
+[node name="HUD" type="Control"]
+z_index = 5
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+script = ExtResource("1_ensg4")
+
+[node name="title_lbl" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.5
+offset_right = 64.5
+offset_bottom = 49.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 20
+text = "idel game
+GasSpace games"
+horizontal_alignment = 1
+script = ExtResource("2_0jxih")
+
+[node name="botton_bar" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -31.0
+offset_right = 18.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="inventry_btn" type="Button" parent="botton_bar"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+shortcut = SubResource("Shortcut_0jxih")
+text = "INV"
+
+[node name="status_panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 163.0
+offset_bottom = 115.0
+scale = Vector2(1.5, 1.5)
+theme_override_styles/panel = ExtResource("3_ldeas")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="status_panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="health_lbl" type="Label" parent="status_panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 20
+text = "health"
+horizontal_alignment = 1
+
+[node name="speed_lbl" type="Label" parent="status_panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 20
+text = "speed"
+horizontal_alignment = 1
+
+[node name="strength_lbl" type="Label" parent="status_panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 20
+text = "strength"
+horizontal_alignment = 1
+
+[node name="collecting_panel" parent="." instance=ExtResource("2_ap566")]
+visible = false
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -432.0
+offset_right = -432.0
+grow_horizontal = 0
+
+[node name="inventory_panel" parent="." instance=ExtResource("3_4ocwj")]
+visible = false
+layout_mode = 1
+offset_right = 478.0
+
+[node name="crafting_panel" parent="." instance=ExtResource("4_vx05x")]
+visible = false
+layout_mode = 1
+
+[node name="repair_panel" parent="." instance=ExtResource("5_ap566")]
+visible = false
+layout_mode = 1
+
+[node name="collect_lbl" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -14.0
+offset_right = 115.0
+offset_bottom = 14.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "items"
+vertical_alignment = 1
+
+[connection signal="pressed" from="botton_bar/inventry_btn" to="." method="_on_inventry_btn_pressed"]

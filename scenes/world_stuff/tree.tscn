@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4eseeox3ae4j"]
+
+[ext_resource type="Script" uid="uid://u2f2dmwhhk17" path="res://scripts/world_stuff/tree.gd" id="1_oovxm"]
+[ext_resource type="Texture2D" uid="uid://dmp6cj7gqnxr6" path="res://assets/World_assets/world_stuff/tree1.png" id="2_8l3vm"]
+[ext_resource type="Texture2D" uid="uid://du0qdhkelgpbs" path="res://assets/World_assets/world_stuff/tree_stump.png" id="3_s7u78"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ullnt"]
+size = Vector2(79, 7)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kef6b"]
+radius = 49.0
+
+[node name="tree" type="StaticBody2D" groups=["interactable"]]
+y_sort_enabled = true
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_oovxm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
+texture = ExtResource("2_8l3vm")
+offset = Vector2(15, -100)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -12)
+texture = ExtResource("3_s7u78")
+offset = Vector2(0, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, -15.5)
+shape = SubResource("RectangleShape2D_ullnt")
+
+[node name="detector" type="Area2D" parent="."]
+position = Vector2(0, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detector"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_kef6b")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="body_entered" from="detector" to="." method="_on_detector_body_entered"]
+[connection signal="body_exited" from="detector" to="." method="_on_detector_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

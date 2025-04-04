@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5cdm85wwmqvt"]
+
+[ext_resource type="Texture2D" uid="uid://4kdf2tynkyng" path="res://assets/World_assets/world_stuff/stair_1.png" id="1_383vs"]
+[ext_resource type="Script" uid="uid://c1755llxg3d65" path="res://scripts/world_stuff/staircase_1.gd" id="1_su4kl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_su4kl"]
+size = Vector2(84, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xlpd"]
+size = Vector2(83, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3n3cw"]
+size = Vector2(9, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtmis"]
+size = Vector2(9, 75)
+
+[node name="staircase_1" type="Node2D"]
+y_sort_enabled = true
+position = Vector2(0, -202)
+script = ExtResource("1_su4kl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.24992, 28.7129)
+scale = Vector2(0.82422, 0.414893)
+texture = ExtResource("1_383vs")
+offset = Vector2(0, 300)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 198)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -88.5)
+shape = SubResource("RectangleShape2D_su4kl")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(0, 151)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(1.5, 43)
+shape = SubResource("RectangleShape2D_5xlpd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-47.5, -54)
+shape = SubResource("RectangleShape2D_3n3cw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(49.5, -54.5)
+shape = SubResource("RectangleShape2D_mtmis")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
